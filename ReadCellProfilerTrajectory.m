@@ -16,7 +16,7 @@ function MyExptNuclei = importfile(filename, startRow, endRow)
 %% Initialize variables.
 delimiter = ',';
 if nargin<=2
-    startRow = 2;
+    startRow = 3;
     endRow = inf;
 end
 
@@ -61,7 +61,7 @@ end
 %	column38: double (%f)
 %   column39: double (%f)
 % For more information, see the TEXTSCAN documentation.
-formatSpec = '%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%C%f%f%f%q%f%f%f%f%[^\n\r]';
+formatSpec = '%f%f%f%C%f%f%f%[^\n\r]';
 
 %% Open the text file.
 fileID = fopen(filename,'r');
@@ -82,5 +82,5 @@ fclose(fileID);
 % script.
 
 %% Create output variable
-MyExptNuclei = table(dataArray{1:end-1}, 'VariableNames', {'ImageNumber','ObjectNumber','Children_Cells_Count','Intensity_IntegratedIntensityEdge_GFP','Intensity_IntegratedIntensity_GFP','Intensity_LowerQuartileIntensity_GFP','Intensity_MADIntensity_GFP','Intensity_MassDisplacement_GFP','Intensity_MaxIntensityEdge_GFP','Intensity_MaxIntensity_GFP','Intensity_MeanIntensityEdge_GFP','Intensity_MeanIntensity_GFP','Intensity_MedianIntensity_GFP','Intensity_MinIntensityEdge_GFP','Intensity_MinIntensity_GFP','Intensity_StdIntensityEdge_GFP','Intensity_StdIntensity_GFP','Intensity_UpperQuartileIntensity_GFP','Location_CenterMassIntensity_X_GFP','Location_CenterMassIntensity_Y_GFP','Location_CenterMassIntensity_Z_GFP','Location_Center_X','Location_Center_Y','Location_Center_Z','Location_MaxIntensity_X_GFP','Location_MaxIntensity_Y_GFP','Location_MaxIntensity_Z_GFP','Number_Object_Number','TrackObjects_Displacement_50','TrackObjects_DistanceTraveled_50','TrackObjects_FinalAge_50','TrackObjects_IntegratedDistance_50','TrackObjects_Label_50','TrackObjects_Lifetime_50','TrackObjects_Linearity_50','TrackObjects_ParentImageNumber_50','TrackObjects_ParentObjectNumber_50','TrackObjects_TrajectoryX_50','TrackObjects_TrajectoryY_50'});
+MyExptNuclei = table(dataArray{1:end-1}, 'VariableNames', {'ImageNumber','ObjectNumber','Intensity_MeanIntensity_GFP','TrackObjects_FinalAge_50','TrackObjects_Label_50','TrackObjects_Lifetime_50','Intensity_MeanIntensity_GFP1'});
 
